@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Gradess\" />
-    <Folder Include="Views\Teachers\" />
   </ItemGroup>
 
 </Project>
