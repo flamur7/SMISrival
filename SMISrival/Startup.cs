@@ -29,6 +29,7 @@ namespace SMISrival
                 options => options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContextConnection"))
                 );
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,7 @@ namespace SMISrival
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
