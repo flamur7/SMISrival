@@ -90,6 +90,7 @@ namespace SMISrival.Areas.Identity.Pages.Account
             {
                 var user = new AuthUser { UserName = Input.Email, Email = Input.Email, Name = Input.Name, Surname = Input.Surname };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                await _userManager.AddToRoleAsync(user, "User");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
