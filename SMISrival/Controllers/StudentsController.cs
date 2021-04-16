@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SMISrival.Models;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SMISrival.Controllers
 {
+    
     public class StudentsController : Controller
     {  
         private readonly ApplicationDbContext _db;
@@ -40,7 +42,7 @@ namespace SMISrival.Controllers
             return View(Studnet);
         }
 
-        public IActionResult Info(int? id)
+        public IActionResult Detail(int? id)
         {
             Studnet = new Student();
             if (id == null)
@@ -79,7 +81,7 @@ namespace SMISrival.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Info()
+        public IActionResult Detail()
         {
             if (ModelState.IsValid)
             {
@@ -114,11 +116,11 @@ namespace SMISrival.Controllers
             var studentFromDb = await _db.Students.FirstOrDefaultAsync(u => u.Id == id);
             if (studentFromDb == null)
             {
-                return Json(new { success = false, message = "Error" });
+                return Json(new { success = false, message = "Error while Deleting" });
             }
             _db.Students.Remove(studentFromDb);
             await _db.SaveChangesAsync();
-            return Json(new { success = true, message = "Sukseshem" });
+            return Json(new { success = true, message = "Delete successful" });
         }
         #endregion
     }
