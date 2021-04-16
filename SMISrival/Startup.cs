@@ -61,6 +61,11 @@ namespace SMISrival
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                name: "Admin",
+                pattern: "{area:exists}/{controller=AdminHome}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
