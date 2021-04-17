@@ -40,7 +40,7 @@ namespace SMISrival.Controllers
             return View(Teacher);
         }
 
-        public IActionResult Info(int? id)
+        public IActionResult Detail(int? id)
         {
             Teacher = new Teacher();
             if (id == null)
@@ -79,7 +79,7 @@ namespace SMISrival.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Info()
+        public IActionResult Detail()
         {
             if (ModelState.IsValid)
             {
