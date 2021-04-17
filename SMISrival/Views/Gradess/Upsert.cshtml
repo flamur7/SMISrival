@@ -1,7 +1,7 @@
 ﻿@model SMISrival.Models.Grades
 
 <br />
-<h2 class="text-info">@(Model.Id!=0 ? "Edit" : "Create") Student</h2>
+<h2 class="text-info">@(Model.Id!=0 ? "Edit" : "Create") Grade</h2>
 <br />
 
 <div class="border container" style="padding:30px;">
@@ -51,7 +51,7 @@
         <div class="form-group row">
             <div class="col-3 offset-3">
                 <button type="submit" class="btn btn-primary form-control">
-                    @(Model.Id != 0 ? "Update" : "Create")
+                    @(Model.Id != 0 ? "SEND" : "SEND")
                 </button>
             </div>
             <div class="col-3">
