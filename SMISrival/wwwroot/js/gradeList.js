@@ -7,25 +7,25 @@ $(document).ready(function () {
 function loadDataTable() {
     dataTable = $('#DT_load').DataTable({
         "ajax": {
-            "url": "/teachers/getall/",
+            "url": "/gradess/getall/",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "name", "width": "20%" },
-            { "data": "surname", "width": "20%" },
-            { "data": "subject", "width": "20%" },
-            { "data": "teacherCode", "width": "20%" },
+            { "data": "personalId", "width": "20%" },
+            { "data": "codeTeacher", "width": "20%" },
+            { "data": "subjects", "width": "20%" },
             
+
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Teachers/Upsert?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
+                        <a href="/Gradess/Upsert?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
                             Edit
                         </a>
                         &nbsp;
-                        <a href="/Teachers/Detail?id=${data}" class='btn btn-primary text-white' style='cursor:pointer; width:70px;'>
+                        <a href="/Gradess/Detail?id=${data}" class='btn btn-primary text-white' style='cursor:pointer; width:70px;'>
                             Detail
                         </a>
                         &nbsp;

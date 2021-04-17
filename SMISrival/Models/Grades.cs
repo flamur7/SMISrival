@@ -8,6 +8,7 @@ namespace SMISrival.Models
 {
     public class Grades
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public String PersonalId { get; set; }
