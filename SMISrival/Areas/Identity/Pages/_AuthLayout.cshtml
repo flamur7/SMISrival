@@ -43,3 +43,8 @@
         })
     </script>
 }
+
+@section Styles{
+    @await RenderSectionAsync("Styles", required: false)
+    <link rel="stylesheet" href="~/css/keyframe.css" />
+}

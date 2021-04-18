@@ -59,9 +59,10 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  font-family: 'Times New Roman', sans-serif;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Times New Roman', sans-serif;
+
 }
 .footer {
   position: absolute;

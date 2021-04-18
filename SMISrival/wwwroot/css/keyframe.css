@@ -1,0 +1,31 @@
+﻿body {
+    margin: 0;
+    animation: animate 14s ease-out infinite running none;
+    background-size: cover;
+    background-blend-mode:darken;
+    
+}
+
+
+
+@keyframes animate {
+    0%,100% {
+        background-image: url("firstone.png");
+    }
+
+    20% {
+        background-image: url("forthone.jpg");
+    }
+
+    40% {
+        background-image: url("secondone.jpg");
+    }
+
+    60% {
+        background-image: url("firstone.png");
+    }
+
+    80% {
+        background-image: url("thirdone.jpg");
+    }
+}
