@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SMISrival.Models
 {
-    public class Grades
+    public class CreateGrade
     {
         [Key]
         public int Id { get; set; }
@@ -18,6 +18,5 @@ namespace SMISrival.Models
         public String Subjects { get; set; }
         [Required]
         public String Grade { get; set; }
-
     }
 }
