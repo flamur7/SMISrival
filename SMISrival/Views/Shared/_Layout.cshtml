@@ -35,9 +35,16 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Gradess" asp-action="Index">Grades List</a>
-                        </li><li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CreateGrades" asp-action="Index">Create Grades</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark"  asp-controller="CreateGrades" asp-action="Index">Create Grades</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>        </nav>
@@ -50,7 +57,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Testing - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - SMISrival
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

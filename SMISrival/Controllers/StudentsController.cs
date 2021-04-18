@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SMISrival.Controllers
 {
+    [Authorize]
     public class StudentsController : Controller
     {
         
