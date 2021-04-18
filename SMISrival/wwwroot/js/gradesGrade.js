@@ -15,15 +15,14 @@ function loadDataTable() {
             { "data": "personalId", "width": "30%" },
             { "data": "codeTeacher", "width": "30%" },
             { "data": "subjects", "width": "30%" },
+            { "data": "grade", "width": "30%" },
 
 
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Gradess/Detail?id=${data}" class='btn btn-primary text-white' style='cursor:pointer; width:80px;'>
-                            Detail
-                        </a>
+                    
                         &nbsp;
                         </div>`;
                 }, "width": "40%"
