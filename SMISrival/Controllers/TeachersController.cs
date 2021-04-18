@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SMISrival.Models;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SMISrival.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TeachersController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -23,6 +25,7 @@ namespace SMISrival.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Upsert(int? id)
         {
             Teacher = new Teacher();
@@ -57,6 +60,7 @@ namespace SMISrival.Controllers
             return View(Teacher);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Upsert()

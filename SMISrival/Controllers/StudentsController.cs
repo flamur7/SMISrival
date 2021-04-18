@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SMISrival.Models;
 using System;
@@ -10,6 +11,7 @@ namespace SMISrival.Controllers
 {
     public class StudentsController : Controller
     {
+        
         private readonly ApplicationDbContext _db;
         [BindProperty]
         public Student Studnet { get; set; }
@@ -23,6 +25,7 @@ namespace SMISrival.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Upsert(int? id)
         {
             Studnet = new Student();
@@ -57,6 +60,7 @@ namespace SMISrival.Controllers
             return View(Studnet);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Upsert()
@@ -107,7 +111,7 @@ namespace SMISrival.Controllers
             return Json(new { data = await _db.Students.ToListAsync() });
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
