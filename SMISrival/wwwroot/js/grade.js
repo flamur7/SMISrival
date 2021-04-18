@@ -12,27 +12,19 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "personalId", "width": "20%" },
-            { "data": "codeTeacher", "width": "20%" },
-            { "data": "subjects", "width": "20%" },
-            
+            { "data": "personalId", "width": "30%" },
+            { "data": "codeTeacher", "width": "30%" },
+            { "data": "subjects", "width": "30%" },
+
 
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Gradess/Upsert?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
-                            Edit
-                        </a>
-                        &nbsp;
-                        <a href="/Gradess/Detail?id=${data}" class='btn btn-primary text-white' style='cursor:pointer; width:70px;'>
+                        <a href="/Gradess/Detail?id=${data}" class='btn btn-primary text-white' style='cursor:pointer; width:80px;'>
                             Detail
                         </a>
                         &nbsp;
-                        <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
-                            onclick=Delete('/teachers/Delete?id='+${data})>
-                            Delete
-                        </a>
                         </div>`;
                 }, "width": "40%"
             }
