@@ -4,6 +4,9 @@
         <h2 class="text-info">Grade List</h2>
     </div>
     <div class="col-3 offset-3">
+        <a asp-action="Upsert" asp-controller="CreateGrades" class="btn btn-info form-control text-white">
+            Add New Grades
+        </a>
     </div>
     <div class="col-12 border p-3">
         <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
@@ -12,6 +15,7 @@
                     <th>PersonalId</th>
                     <th>CodeTeacher</th>
                     <th>Subjects</th>
+                    <th>Grade</th>
                     <th></th>
                 </tr>
             </thead>
@@ -20,5 +24,5 @@
 </div>
 
 @section Scripts{
-    <script src="~/js/grade.js"></script>
+    <script src="~/js/createGrades.js"></script>
 }

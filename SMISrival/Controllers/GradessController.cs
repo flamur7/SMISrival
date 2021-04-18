@@ -23,22 +23,7 @@ namespace SMISrival.Controllers
             return View();
         }
 
-        public IActionResult Upsert(int? id)
-        {
-            Grades = new Grades();
-            if (id == null)
-            {
-                //create
-                return View(Grades);
-            }
-            //update
-            Grades = _db.Grades.FirstOrDefault(u => u.Id == id);
-            if (Grades == null)
-            {
-                return NotFound();
-            }
-            return View(Grades);
-        }
+        
 
         public IActionResult Detail(int? id)
         {
@@ -57,26 +42,7 @@ namespace SMISrival.Controllers
             return View(Grades);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Upsert()
-        {
-            if (ModelState.IsValid)
-            {
-                if (Grades.Id == 0)
-                {
-                    //create
-                    _db.Grades.Add(Grades);
-                }
-                else
-                {
-                    _db.Grades.Update(Grades);
-                }
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(Grades);
-        }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Detail()
@@ -104,21 +70,7 @@ namespace SMISrival.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Json(new { data = await _db.Grades.ToListAsync() });
-        }
-
-
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var gradesFromDb = await _db.Grades.FirstOrDefaultAsync(u => u.Id == id);
-            if (gradesFromDb == null)
-            {
-                return Json(new { success = false, message = "Error while Deleting" });
-            }
-            _db.Grades.Remove(gradesFromDb);
-            await _db.SaveChangesAsync();
-            return Json(new { success = true, message = "Delete successful" });
+            return Json(new { data = await _db.CreateGrades.ToListAsync() });
         }
         #endregion
 
