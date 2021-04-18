@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SMISrival.Models
 {
-    public class Teacher
+    public class Teacher : BaseEntity
     {
         [Key]
         public int Id { get; set; }

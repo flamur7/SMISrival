@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SMISrival.Models;
 using System;
@@ -9,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace SMISrival.Controllers
 {
-    
     public class StudentsController : Controller
-    {  
+    {
         private readonly ApplicationDbContext _db;
         [BindProperty]
         public Student Studnet { get; set; }
